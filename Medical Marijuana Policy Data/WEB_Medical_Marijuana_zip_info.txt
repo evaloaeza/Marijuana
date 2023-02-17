@@ -1,0 +1,12 @@
+OPTIC-Vetted Medical Marijuana Policy Data
+
+The files in this folder are for the Medical Marijuana policy variables (1990-2019) included in the OPTIC-Vetted Policy Data Sets. 	
+Analytic file for Excel:  WEB_MJ Policy.xlsx
+Analytic file for Stata:  WEB_MJ Policy.dta
+Documentation file: WEB_OPTIC Vetted Medical Marijuana Policy Data.pdf
+
+Last Updated: October 19, 2020
+
+The folder is associated with "Do Medical Marijuana Laws Reduce Addictions and Deaths Related to Pain Killers?" https://www.rand.org/pubs/external_publications/EP67480.html. 
+
+All OPTIC-Vetted Policy Data Sets available for download can be found at https://www. rand.org/health-care/centers/optic/resources/datasets.html.
