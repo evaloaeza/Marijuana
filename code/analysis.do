@@ -24,6 +24,9 @@ merge 1:1 state year using "$user\Medical Marijuana Policy Data\WEB_MJ Policy.dt
     keep(match master) nogen
 ren state state_abbr
 
+* Brin state population
+merge 1:1 state_fips year using "$data\state_population.dta", keep(match master) nogen
+
 sort state_fips year
 xtset state_fips year
 
@@ -76,11 +79,11 @@ poisson age_adjusted_rate medical_cannabis_law unemployment *_update _I*, vce(r)
 gen timeToTreat = year - year(date_effMML)
 sum timeToTreat if year<=2010
 
-eventdd ln_age_mort_rate unemployment *_original i.year i.state_fips if year<=2010 , ///
+eventdd ln_age_mort_rate unemployment *_original i.year i.state_fips [w=totpop] if year<=2010 , ///
 timevar(timeToTreat) ci(rcap) cluster(state_fips) ///
 graph_op(ytitle("Point Estimate and 95% Confidence Interval") xlabel(-19(4)14))
 
-eventdd age_adjusted_rate unemployment *_update i.year i.state_fips, ///
+eventdd age_adjusted_rate unemployment *_update i.year i.state_fips [w=totpop], ///
 timevar(timeToTreat) ci(rcap) cluster(state_fips) ///
 graph_op(ytitle("Point Estimate and 95% Confidence Interval") xlabel(-20(4)22))
 
